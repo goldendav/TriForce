@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLDENDAV TriForce - Sistema Trading a 3 Forze Combinato</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #b8860b;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #b8860b, #daa520, #b8860b);
+            opacity: 0.08;
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #b8860b;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 10px #b8860b; }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px #b8860b, 0 0 30px #daa520; }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        /* TriForce Display */
+        .triforce-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .force-badge {
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            min-width: 200px;
+            animation: pulse 3s infinite;
+            border: 2px solid;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .force-multitrades {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: #fff;
+            border-color: #FF6B35;
+        }
+
+        .force-sniper {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: #fff;
+            border-color: #4ECDC4;
+        }
+
+        .force-manual {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border-color: #667eea;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out;
+            border: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #b8860b;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #b8860b, #daa520);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(184, 134, 11, 0.3);
+            color: #ffffff;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-color: #b8860b;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #b8860b;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            color: #daa520;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .feature-text {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(184, 134, 11, 0.4);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            border-color: #b8860b;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #b8860b;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #b8860b 0%, #daa520 50%, #b8860b 100%);
+            color: #000000;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 2px solid #000000;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.8);
+            color: #b8860b;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #000000;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-cta:hover {
+            background: rgba(0, 0, 0, 0.9);
+            color: #daa520;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Lists */
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .check-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .check-list li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            filter: hue-rotate(30deg) brightness(1.2);
+        }
+
+        /* Force Comparison Cards */
+        .force-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .force-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .force-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--force-color);
+        }
+
+        .force-card.multitrades {
+            --force-color: #FF6B35;
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .force-card.sniper {
+            --force-color: #4ECDC4;
+            border-color: rgba(78, 205, 196, 0.3);
+        }
+
+        .force-card.manual {
+            --force-color: #667eea;
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .force-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--force-color);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        .force-name {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--force-color);
+            color: #000;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .force-description {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .force-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .force-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        .force-stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--force-color);
+        }
+
+        .force-stat-label {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        /* Weekly Target Section */
+        .weekly-target {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 3px solid #4CAF50;
+            text-align: center;
+        }
+
+        .target-title {
+            color: #4CAF50;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .target-amount {
+            color: #b8860b;
+            font-size: 5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .target-desc {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Monthly results table */
+        .monthly-table {
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #b8860b, #daa520);
+            color: #000;
+            padding: 1rem;
+            font-weight: bold;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+            color: #e0e0e0;
+        }
+
+        .table-row:nth-child(even) {
+            background: rgba(184, 134, 11, 0.05);
+        }
+
+        .profit-positive {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .profit-negative {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border-left: 5px solid #b8860b;
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .feature-grid, .force-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+
+            .triforce-showcase {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .force-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .target-amount {
+                font-size: 3rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .section {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">⚡ GOLDENDAV TriForce</h1>
+                <p class="subtitle">Sistema Trading a 3 Forze - La Prima Fusione al Mondo di Bot + Trader Umano</p>
+                
+                <div class="triforce-showcase">
+                    <div class="force-badge force-multitrades">
+                        🔥 FORZA 1: MULTITRADES<br>2 Trades Simultanei RSI
+                    </div>
+                    <div class="force-badge force-sniper">
+                        🎯 FORZA 2: SNIPER 2.0<br>1 Trade Giornaliero Preciso
+                    </div>
+                    <div class="force-badge force-manual">
+                        🧠 FORZA 3: TRADER UMANO<br>Ottimizzazione Settimanale
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%); padding: 1.5rem; border-radius: 15px; margin-top: 1rem; border: 2px solid #4CAF50;">
+                    <p style="color: #4CAF50; font-size: 1.4rem; font-weight: bold; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                        🏆 TRIFORCE: 3 FORZE UNITE PER L'OBIETTIVO 3% SETTIMANALE! 🏆
+                    </p>
+                    <p style="color: #e0e0e0; font-size: 1rem; margin: 0.5rem 0 0 0;">
+                        Bot Automatici + Trader Umano • Capitale 500€ • La prima fusione Uomo-Macchina del trading
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sistema TriForce -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">⚡ SISTEMA TriForce - 3 FORZE UNITE</h2>
+            
+            <div style="background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, rgba(218, 165, 32, 0.1) 100%); padding: 3rem; border-radius: 20px; margin: 3rem 0; border: 2px solid rgba(184, 134, 11, 0.3);">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #b8860b; font-size: 2rem;">🔮 LA PRIMA FUSIONE UOMO-MACCHINA AL MONDO</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                        <div style="color: #b8860b; font-size: 2.5rem; margin-bottom: 1rem;">500€</div>
+                        <div style="color: #e0e0e0; font-weight: bold;">Capitale Unico</div>
+                        <div style="color: #4CAF50; font-size: 0.9rem;">3 Forze Combinate</div>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                        <div style="color: #b8860b; font-size: 2.5rem; margin-bottom: 1rem;">3</div>
+                        <div style="color: #e0e0e0; font-weight: bold;">Strategie Diverse</div>
+                        <div style="color: #4CAF50; font-size: 0.9rem;">Complementari</div>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                        <div style="color: #b8860b; font-size: 2.5rem; margin-bottom: 1rem;">~3%</div>
+                        <div style="color: #e0e0e0; font-weight: bold;">Target Settimanale</div>
+                        <div style="color: #4CAF50; font-size: 0.9rem;">Obiettivo Combinato</div>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                        <div style="color: #b8860b; font-size: 2.5rem; margin-bottom: 1rem;">24/7</div>
+                        <div style="color: #e0e0e0; font-weight: bold;">Operatività</div>
+                        <div style="color: #4CAF50; font-size: 0.9rem;">Bot + Umano</div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.4); padding: 2rem; border-radius: 15px; border: 1px solid rgba(184, 134, 11, 0.5); margin-top: 2rem;">
+                    <h4 style="color: #4CAF50; text-align: center; font-size: 1.4rem; margin-bottom: 1.5rem;">🎯 LOGICA DEL SISTEMA TriForce</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <h5 style="color: #FF6B35; margin-bottom: 1rem;">🔥 MULTITRADES Component</h5>
+                            <ul class="check-list" style="color: #e0e0e0; font-size: 0.95rem;">
+                                <li>2 trades simultanei per segnale RSI</li>
+                                <li>Win-Cancel Logic intelligente</li>
+                                <li>Max 4 sequenze giornaliere</li>
+                                <li>Win Rate comprovato 76.5%</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 style="color: #4ECDC4; margin-bottom: 1rem;">🎯 SNIPER Component</h5>
+                            <ul class="check-list" style="color: #e0e0e0; font-size: 0.95rem;">
+                                <li>1 trade giornaliero ultra-preciso</li>
+                                <li>Algoritmi tecnici avanzati</li>
+                                <li>Filtri multi-dimensionali</li>
+                                <li>Win Rate 53.59% stabile</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 style="color: #667eea; margin-bottom: 1rem;">🧠 TRADER UMANO Component</h5>
+                            <ul class="check-list" style="color: #e0e0e0; font-size: 0.95rem;">
+                                <li>Intervento settimanale strategico</li>
+                                <li>Ottimizzazione performance bot</li>
+                                <li>Analisi fondamentale avanzata</li>
+                                <li>Boost per target 3% settimanale</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="force-comparison">
+                <div class="force-card multitrades">
+                    <div class="force-name">🔥 FORZA 1: MULTITRADES</div>
+                    <div class="force-description">
+                        Sistema RSI che apre 2 trades simultanei opposti per ogni segnale. 
+                        Win-Cancel Logic: quando il primo trade diventa vincente, cancella automaticamente il trade pending opposto.
+                    </div>
+                    <div class="force-stats">
+                        <div class="force-stat">
+                            <div class="force-stat-value">+304.64%</div>
+                            <div class="force-stat-label">Return 6 anni</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">76.5%</div>
+                            <div class="force-stat-label">Win Rate</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">3,206</div>
+                            <div class="force-stat-label">Entrate Totali</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">2.4%</div>
+                            <div class="force-stat-label">Max Drawdown</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="force-card sniper">
+                    <div class="force-name">🎯 FORZA 2: SNIPER 2.0</div>
+                    <div class="force-description">
+                        Strategia algoritmica avanzata che seleziona solo 1 opportunità al giorno della massima qualità. 
+                        Combinazione di oltre 15 indicatori tecnici per timing perfetto ed esecuzione precisa.
+                    </div>
+                    <div class="force-stats">
+                        <div class="force-stat">
+                            <div class="force-stat-value">+102.22%</div>
+                            <div class="force-stat-label">Return 6 anni</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">53.59%</div>
+                            <div class="force-stat-label">Win Rate</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">1,308</div>
+                            <div class="force-stat-label">Trades Totali</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">9.17%</div>
+                            <div class="force-stat-label">Max Drawdown</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="force-card manual">
+                    <div class="force-name">🧠 FORZA 3: TRADER UMANO</div>
+                    <div class="force-description">
+                        Intervento strategico settimanale di un trader professionista per ottimizzare le performance dei bot. 
+                        Analisi fondamentale, market sentiment e boost mirato per raggiungere l'obiettivo 3% settimanale.
+                    </div>
+                    <div class="force-stats">
+                        <div class="force-stat">
+                            <div class="force-stat-value">~1-2</div>
+                            <div class="force-stat-label">Trade Settimanali</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">Variabile</div>
+                            <div class="force-stat-label">Win Rate</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">Alto</div>
+                            <div class="force-stat-label">Valore Aggiunto</div>
+                        </div>
+                        <div class="force-stat">
+                            <div class="force-stat-value">Controllo</div>
+                            <div class="force-stat-label">Rischio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Obiettivo Settimanale -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">🎯 OBIETTIVO TriForce</h2>
+            
+            <div class="weekly-target">
+                <h3 class="target-title">🎯 TARGET SETTIMANALE</h3>
+                <div class="target-amount">~3%</div>
+                <p class="target-desc">
+                    <strong style="color: #daa520;">Obiettivo Combinato delle 3 Forze</strong><br>
+                    Bot Automatici + Trader Umano per Performance Ottimali
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(255, 107, 53, 0.2); border-radius: 15px; border: 2px solid #FF6B35;">
+                        <div style="color: #FF6B35; font-size: 1.5rem; margin-bottom: 0.5rem;">🔥 MULTITRADES</div>
+                        <div style="color: #e0e0e0; font-size: 1rem;">Contributo Base Continuo</div>
+                        <div style="color: #FF6B35; font-size: 1.2rem; font-weight: bold;">1.0% settimanale</div>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(78, 205, 196, 0.2); border-radius: 15px; border: 2px solid #4ECDC4;">
+                        <div style="color: #4ECDC4; font-size: 1.5rem; margin-bottom: 0.5rem;">🎯 SNIPER</div>
+                        <div style="color: #e0e0e0; font-size: 1rem;">Precisione Giornaliera</div>
+                        <div style="color: #4ECDC4; font-size: 1.2rem; font-weight: bold;">0.5% settimanale</div>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(102, 126, 234, 0.2); border-radius: 15px; border: 2px solid #667eea;">
+                        <div style="color: #667eea; font-size: 1.5rem; margin-bottom: 0.5rem;">🧠 TRADER</div>
+                        <div style="color: #e0e0e0; font-size: 1rem;">Boost Settimanale</div>
+                        <div style="color: #667eea; font-size: 1.2rem; font-weight: bold;">1.5% settimanale</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, rgba(218, 165, 32, 0.1) 100%); padding: 3rem; border-radius: 20px; border: 2px solid rgba(184, 134, 11, 0.3); margin: 3rem 0;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #b8860b; font-size: 2rem;">🧠 COME OPERA IL TRADER UMANO</h3>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="color: #667eea;">📈</div>
+                        <h3 class="feature-title" style="color: #667eea;">Analisi Settimanale</h3>
+                        <ul class="check-list">
+                            <li>Valutazione performance dei 2 bot</li>
+                            <li>Analisi mercato e sentiment globale</li>
+                            <li>Identificazione opportunità aggiuntive</li>
+                            <li>Calcolo gap per raggiungere 3% settimanale</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="color: #667eea;">⚡</div>
+                        <h3 class="feature-title" style="color: #667eea;">Intervento Strategico</h3>
+                        <ul class="check-list">
+                            <li>1-2 trades settimanali mirati</li>
+                            <li>Sfrutta notizie e eventi fondamentali</li>
+                            <li>Complementa l'azione dei bot</li>
+                            <li>Focus su opportunità ad alto R/R</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="color: #667eea;">🛡️</div>
+                        <h3 class="feature-title" style="color: #667eea;">Gestione Rischio</h3>
+                        <ul class="check-list">
+                            <li>Monitora esposizione totale del conto</li>
+                            <li>Interviene solo se necessario per target</li>
+                            <li>Rispetta sempre money management</li>
+                            <li>Stop loss garantiti su ogni operazione</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance TriForce -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">📈 PERFORMANCE TriForce ATTESE</h2>
+            
+            <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%); padding: 3rem; border-radius: 20px; border: 3px solid #4CAF50; margin: 3rem 0; text-align: center;">
+                <h3 style="color: #4CAF50; font-size: 2.5rem; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    🏆 PROIEZIONE PERFORMANCE TriForce
+                </h3>
+                
+                <!-- Performance Base Bot -->
+                <div style="background: rgba(0,0,0,0.4); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+                    <h4 style="color: #b8860b; font-size: 1.5rem; margin-bottom: 1rem;">📊 PERFORMANCE BASE BOT COMBINATI</h4>
+                    <div style="color: #b8860b; font-size: 3rem; font-weight: bold; margin: 1rem 0;">
+                        500€ → 1,637.30€
+                    </div>
+                    <p style="color: #e0e0e0; font-size: 1.1rem;">
+                        <strong style="color: #daa520;">Performance Bot: +327.46% in 6 anni</strong><br>
+                        (Media tra Multitrades +304.64% e Sniper +102.22%, profitti raddoppiati)
+                    </p>
+                </div>
+
+                <!-- Con Trader Umano -->
+                <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(103, 58, 183, 0.2) 100%); padding: 3rem; border-radius: 20px; border: 3px solid #667eea; margin: 3rem 0;">
+                    <h4 style="color: #667eea; font-size: 2rem; margin-bottom: 1rem;">🧠 CON TRADER UMANO (3% settimanale)</h4>
+                    <div style="color: #667eea; font-size: 4rem; font-weight: bold; margin: 1rem 0;">
+                        500€ → 2,030€
+                    </div>
+                    <h4 style="color: #FFD700; font-size: 1.8rem; font-weight: bold; margin-bottom: 1rem;">
+                        POTENZIALE: +306% ANNUO
+                    </h4>
+                    <p style="color: #e0e0e0; font-size: 1.2rem; font-weight: 500;">
+                        <strong style="color: #667eea;">Target: 3% settimanale × 52 settimane</strong><br>
+                        Bot + Trader Umano = Performance Straordinarie
+                    </p>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card" style="border: 3px solid #4CAF50;">
+                    <div class="stat-number" style="color: #4CAF50;">~3%</div>
+                    <div class="stat-label">Target Settimanale TriForce</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2,774</div>
+                    <div class="stat-label">Operazioni Bot Testate (raddoppiate)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">65.0%</div>
+                    <div class="stat-label">Win Rate Medio Bot Combinati</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">52+</div>
+                    <div class="stat-label">Interventi Trader/Anno</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5.8%</div>
+                    <div class="stat-label">Max Drawdown Medio</div>
+                </div>
+                <div class="stat-card" style="border: 3px solid #4CAF50;">
+                    <div class="stat-number" style="color: #4CAF50;">~306%</div>
+                    <div class="stat-label">Potenziale Rendimento Annuo</div>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Performance Bot Verificate</h3>
+                    <ul class="check-list">
+                        <li><strong>MULTITRADES:</strong> +304.64% in 6 anni (verificato)</li>
+                        <li><strong>SNIPER:</strong> +102.22% in 6 anni (verificato)</li>
+                        <li><strong>Win Rate Combinato:</strong> 65.0% medio</li>
+                        <li><strong>Capitale raddoppiato:</strong> 500€ base</li>
+                        <li><strong>Lotti raddoppiati:</strong> 0.02 per maggiori profitti</li>
+                        <li><strong>Profitti raddoppiati:</strong> Performance potenziate</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Valore Aggiunto Trader</h3>
+                    <ul class="check-list">
+                        <li><strong>Target settimanale:</strong> ~3% complessivo</li>
+                        <li><strong>Frequenza interventi:</strong> 1-2 trades/settimana</li>
+                        <li><strong>Complementarietà:</strong> Non interferisce con i bot</li>
+                        <li><strong>Analisi umana:</strong> Sentiment e fondamentali</li>
+                        <li><strong>Ottimizzazione:</strong> Boost performance quando necessario</li>
+                        <li><strong>Controllo rischio:</strong> Supervisione generale del conto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantaggi Sistema TriForce -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">🔮 VANTAGGI SISTEMA TriForce</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">Automazione Intelligente</h3>
+                    <ul class="check-list">
+                        <li><strong>Bot 24/7:</strong> Trading automatico continuo</li>
+                        <li><strong>Multitrades:</strong> 2 trades opposti simultanei</li>
+                        <li><strong>Sniper:</strong> 1 trade giornaliero ultra-preciso</li>
+                        <li>Diversificazione strategica automatica</li>
+                        <li>Gestione rischio pre-programmata</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Intelligenza Umana</h3>
+                    <ul class="check-list">
+                        <li><strong>Analisi fondamentale:</strong> Notizie ed eventi</li>
+                        <li><strong>Market sentiment:</strong> Psicologia del mercato</li>
+                        <li><strong>Adattabilità:</strong> Risposta a situazioni uniche</li>
+                        <li><strong>Ottimizzazione:</strong> Boost mirato delle performance</li>
+                        <li><strong>Supervisione:</strong> Controllo generale del sistema</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3 class="feature-title">Equilibrio Perfetto</h3>
+                    <ul class="check-list">
+                        <li><strong>Consistenza bot:</strong> Performance stabili nel tempo</li>
+                        <li><strong>Flessibilità umana:</strong> Adattamento alle opportunità</li>
+                        <li><strong>Rischio controllato:</strong> Doppio livello di protezione</li>
+                        <li><strong>Target realistico:</strong> 3% settimanale sostenibile</li>
+                        <li><strong>Scalabilità:</strong> Sistema espandibile</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Risultati Superiori</h3>
+                    <ul class="check-list">
+                        <li><strong>Performance combinate:</strong> Bot + Trader</li>
+                        <li><strong>Diversificazione estrema:</strong> 3 strategie diverse</li>
+                        <li><strong>Riduzione drawdown:</strong> Compensazione reciproca</li>
+                        <li><strong>Crescita accelerata:</strong> Verso il 3% settimanale</li>
+                        <li><strong>Innovazione unica:</strong> Prima fusione Uomo-Macchina</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup Social Trading -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">🎪 SOCIAL TRADING TriForce</h2>
+            
+            <div class="cta-section">
+                <h3 class="cta-title">💰 Investimento Sistema TriForce: 500€</h3>
+                <p class="cta-text">Capitale ottimizzato per la gestione combinata delle 3 Forze</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎛️</div>
+                    <h3 class="feature-title">Setup Automatico TriForce</h3>
+                    <ul class="check-list">
+                        <li>Lot size 0.02 ottimizzato per account da 500€</li>
+                        <li>Configurazione automatica per entrambi i bot</li>
+                        <li>Abilitazione per interventi trader umano</li>
+                        <li>Controlli di rischio coordinati per le 3 forze</li>
+                        <li>Monitoraggio unificato real-time</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Controllo Totale Unificato</h3>
+                    <ul class="check-list">
+                        <li>Dashboard combinata per tutte e 3 le forze</li>
+                        <li>Statistiche separate e combinate in tempo reale</li>
+                        <li>Alert coordinati per tutte le operazioni</li>
+                        <li>Report performance settimanali unificati</li>
+                        <li>Comunicazione diretta con il trader umano</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">⚡ PRONTO PER IL TriForce?</h2>
+            <p class="cta-text">La prima fusione Uomo-Macchina del trading: Bot + Trader Umano.<br>
+            3 Forze unite per l'obiettivo 3% settimanale. Innovazione assoluta.</p>
+            <div style="background: rgba(0,0,0,0.3); padding: 2rem; border-radius: 15px; margin: 2rem 0; border: 2px solid rgba(0,0,0,0.5);">
+                <p style="color: #000; font-size: 1.3rem; font-weight: bold; margin-bottom: 1rem;">
+                    🔮 TriForce: LA PRIMA FUSIONE UOMO-MACCHINA AL MONDO!
+                </p>
+                <p style="color: #000; font-size: 1.1rem; opacity: 0.9;">
+                    3 Forze • Target 3% settimanale • Bot 24/7 + Trader Umano<br>
+                    ✅ <strong>INNOVAZIONE ASSOLUTA NEL TRADING ALGORITMICO</strong>
+                </p>
+            </div>
+            <a href="#contact" class="btn-cta">
+                <i class="fas fa-rocket"></i> INIZIA CON TriForce
+            </a>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="container">
+            <p><strong>⚠️ Disclaimer:</strong> Il trading comporta rischi significativi. Le performance passate non garantiscano risultati futuri. Investi solo quello che puoi permetterti di perdere. GOLDENDAV TriForce è un sistema innovativo che combina due strategie algoritmiche (MULTITRADES e SNIPER 2.0) con l'intervento di un trader umano, ma non può garantire profitti futuri. Il sistema è progettato per ottimizzare il rapporto rischio/rendimento attraverso la diversificazione strategica: 2 trades simultanei opposti + 1 trade giornaliero preciso + interventi umani settimanali. L'obiettivo del 3% settimanale è aspirazionale e dipende dalle condizioni di mercato. I backtest dei bot sono basati su dati storici reali ma non garantiscono performance future identiche. L'intervento del trader umano aggiunge variabilità non prevedibile. Prima di utilizzare il sistema, comprendi completamente i rischi: capitale 500€, lotti 0.02, esposizione multipla. Le informazioni sono fornite esclusivamente a scopo informativo e non costituiscono consigli finanziari personalizzati. Consulta sempre un professionista qualificato prima di prendere decisioni di investimento. Ogni investimento comporta rischi sostanziali e potenziali perdite del capitale. Il sistema opera su mercati volatili (XAUUSD) che possono causare perdite rapide e significative. L'uso del sistema è completamente a proprio rischio e responsabilità. La componente umana può commettere errori di valutazione. Non si garantisce il raggiungimento dell'obiettivo settimanale del 3%.</p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add loading effect
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Force cards hover effects
+        document.querySelectorAll('.force-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animate weekly target on scroll
+        const targetObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    const targetAmount = entry.target.querySelector('.target-amount');
+                    if (targetAmount) {
+                        let count = 0;
+                        const target = 3;
+                        const increment = target / 60;
+                        
+                        const counter = setInterval(() => {
+                            count += increment;
+                            if (count < target) {
+                                targetAmount.textContent = `~${count.toFixed(1)}%`;
+                            } else {
+                                targetAmount.textContent = `~3%`;
+                                clearInterval(counter);
+                            }
+                        }, 50);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.weekly-target').forEach(target => {
+            targetObserver.observe(target);
+        });
+
+        // Dynamic counter animation for main stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    if (element.textContent.includes('€')) {
+                        element.textContent = `${Math.floor(start).toLocaleString()}€`;
+                    } else if (element.textContent.includes('%')) {
+                        element.textContent = `~${start.toFixed(0)}%`;
+                    } else {
+                        element.textContent = Math.floor(start).toLocaleString();
+                    }
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    if (element.textContent.includes('€')) {
+                        element.textContent = `${target.toLocaleString()}€`;
+                    } else if (element.textContent.includes('%')) {
+                        element.textContent = `~${target}%`;
+                    } else {
+                        element.textContent = target.toLocaleString();
+                    }
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Intersection observer for stats animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const text = statNumber.textContent;
+                    
+                    if (text.includes('~3%')) {
+                        // Target already animated above
+                    } else if (text.includes('2,774')) {
+                        animateCounter(statNumber, 2774, 2500);
+                    } else if (text.includes('65.0%')) {
+                        animateCounter(statNumber, 65.0, 2000);
+                    } else if (text.includes('52+')) {
+                        animateCounter(statNumber, 52, 1500);
+                    } else if (text.includes('5.8%')) {
+                        animateCounter(statNumber, 5.8, 1500);
+                    } else if (text.includes('~306%')) {
+                        animateCounter(statNumber, 306, 3000);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statsObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
