@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLDENDAV TriForce - Istruzioni Registrazione</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c5f8d;
+            background: linear-gradient(135deg, #f0e6d2 0%, #e8dcc4 50%, #f0e6d2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f0e6d2 0%, #e8dcc4 100%);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #b8860b;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #b8860b, #daa520, #b8860b);
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #b8860b;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.2), 0 0 15px #b8860b; }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.2), 0 0 25px #daa520, 0 0 35px #FFD700; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #b8860b;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 10px 30px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #b8860b;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #b8860b;
+        }
+
+        .back-button:hover {
+            background: rgba(0, 0, 0, 0.9);
+            color: #daa520;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            padding: 4rem 0;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, rgba(240, 230, 210, 0.9) 0%, rgba(232, 220, 196, 0.9) 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out;
+            border: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .instruction-card {
+            background: linear-gradient(135deg, #f5ead2 0%, #ede0c8 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .instruction-card:hover {
+            transform: translateY(-5px);
+            border-color: #b8860b;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .instruction-title {
+            font-size: 2rem;
+            color: #b8860b;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: bold;
+        }
+
+        .instruction-icon {
+            font-size: 2.5rem;
+            color: #daa520;
+        }
+
+        .instruction-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .instruction-list li {
+            padding: 1rem 0;
+            position: relative;
+            padding-left: 2.5rem;
+            color: #3b7cb8;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .instruction-list li::before {
+            content: '▫️';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .link-box {
+            background: rgba(184, 134, 11, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border: 2px solid #b8860b;
+            word-break: break-all;
+        }
+
+        .link-box a {
+            color: #2c5f8d;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .link-box a:hover {
+            color: #b8860b;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 152, 0, 0.2) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 3px solid #FFC107;
+        }
+
+        .warning-box h4 {
+            color: #FF8C00;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-box p {
+            color: #3b7cb8;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 3px solid #4CAF50;
+            text-align: center;
+        }
+
+        .success-box h3 {
+            color: #4CAF50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .success-box p {
+            color: #3b7cb8;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .disclaimer {
+            background: linear-gradient(135deg, #f5ead2 0%, #ede0c8 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border-left: 5px solid #b8860b;
+            font-size: 0.9rem;
+            color: #3b7cb8;
+            line-height: 1.8;
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #b8860b;
+            color: #000;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .instruction-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .instruction-title {
+                font-size: 1.5rem;
+            }
+
+            .instruction-list li {
+                font-size: 1rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">🟡 GOLDENDAV TriForce 🟡</h1>
+                <p class="subtitle">ISTRUZIONI PER REGISTRARSI SU FP MARKETS<br>ED AGGANCIARSI ALLA STRATEGIA TRIFORCE</p>
+                <a href="1760284079237_goldendav_triforce_v21.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Torna alla Home
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="instruction-card">
+                <h2 class="instruction-title">
+                    <span class="step-number">1</span>
+                    <span><i class="instruction-icon fas fa-user-plus"></i> REGISTRAZIONE AL BROKER FP MARKETS</span>
+                </h2>
+                
+                <div class="link-box">
+                    <strong style="color: #b8860b;">🔗 Link di Registrazione:</strong><br>
+                    <a href="https://portal.fpmarkets.com/int-IT/register?redir=stv&fpm-affiliate-utm-source=IB&fpm-affiliate-agt=20030" target="_blank">
+                        https://portal.fpmarkets.com/int-IT/register?redir=stv&fpm-affiliate-utm-source=IB&fpm-affiliate-agt=20030
+                    </a>
+                </div>
+
+                <ul class="instruction-list">
+                    <li>Copiate il link in una finestra di <strong style="color: #b8860b;">"NAVIGAZIONE IN INCOGNITO"</strong> (Per evitare sessioni sporche del browser e posizionamenti errati).</li>
+                    <li>Cliccate su <strong style="color: #b8860b;">CONFIRM</strong> sui banner.</li>
+                    <li>Cliccate su <strong style="color: #b8860b;">APRI REALE</strong>.</li>
+                    <li><strong style="color: #b8860b;">Sei stato segnalato da un partner?</strong><br>
+                        Cliccate <strong>"SI"</strong>. E nel campo ci deve essere <strong>"20030"</strong>. Se non c'è mettetelo voi per sicurezza.</li>
+                    <li>Create conto <strong style="color: #b8860b;">STANDARD</strong>, <strong>LEVA 1:500</strong>, <strong>EURO</strong>, <strong>MT4</strong> ed assegnate una password al conto (che sarà differente dalla password principale per accedere a FPMARKET).</li>
+                    <li>Inviate in allegato <strong style="color: #b8860b;">documento e prova di residenza</strong>, così avrete il conto verificato.</li>
+                </ul>
+            </div>
+
+            <div class="instruction-card">
+                <h2 class="instruction-title">
+                    <span class="step-number">2</span>
+                    <span><i class="instruction-icon fas fa-euro-sign"></i> EFFETTUATE DEPOSITO</span>
+                </h2>
+                
+                <p style="color: #3b7cb8; font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    Dopo aver creato il conto potrete direttamente andando sul conto cliccare sulla destra l'azione <strong style="color: #b8860b;">Deposita</strong>
+                </p>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> ATTENZIONE:</h4>
+                    <p>In base a come effettuerete il deposito poi il prelievo dovrà essere fatto con la stessa modalità, fino al raggiungimento della cifra depositata.</p>
+                    <p style="margin-top: 1rem;"><strong style="color: #b8860b;">È consigliabile pertanto depositare con bonifico</strong>, così poi potrete fare i prelievi con bonifico bancario, direttamente sul vostro conto bancario.</p>
+                    <p style="margin-top: 1rem;">Le altre modalità di pagamento sono con carta di credito o anche con criptovalute.</p>
+                </div>
+            </div>
+
+            <div class="instruction-card">
+                <h2 class="instruction-title">
+                    <span class="step-number">3</span>
+                    <span><i class="instruction-icon fas fa-link"></i> AGGANCIARE LA STRATEGIA GOLDENDAV TRIFORCE</span>
+                </h2>
+                
+                <div class="link-box">
+                    <strong style="color: #b8860b;">🔗 Link per Agganciare la Strategia:</strong><br>
+                    <a href="https://social.firstprudentialmarkets.com/portal/registration/subscription/91400/GOLDENDAVAISNIPER30" target="_blank">
+                        https://social.firstprudentialmarkets.com/portal/registration/subscription/91400/GOLDENDAVAISNIPER30
+                    </a>
+                </div>
+
+                <ul class="instruction-list">
+                    <li>Inserite il <strong style="color: #b8860b;">numero conto</strong>, come vostro username, e poi con la <strong>PWD del conto</strong> (NON quella di FPMARKETS) e cliccate su <strong>register</strong>.</li>
+                    <li>Cliccate sul Pulsante <strong style="color: #b8860b;">"ACTION"</strong> e <strong>"ACTIVATE"</strong>.</li>
+                    <li>Verificate che sia attivo il <strong style="color: #b8860b;">"COPY NEW POSITION"</strong></li>
+                    <li>Cliccate su <strong style="color: #b8860b;">"EDIT"</strong> della voce <strong>"SUBSCRIPTION STRATEGY"</strong> che ci sia <strong>"BALANCE"</strong> e NON "EQUITY". (Se in Italiano, scegliete <strong>SALDO</strong>)</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>✅ TUTTO FATTO!</h3>
+                <p style="margin-top: 1.5rem;">
+                    Ora potrete osservare i risultati quotidiani scaricando su cellulare l'<strong style="color: #b8860b;">APP Metatrader4</strong> ed inserendo i dati del conto, cioè numero conto, password e Server del Conto (lo trovate su FPMARKETS nei dati del conto).
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    Anche se non scaricate l'APP riceverete comunque ogni sera tramite email il <strong style="color: #b8860b;">resoconto da FPMARKETS</strong> dei trades effettuati nella giornata, ed a fine mese un <strong style="color: #b8860b;">Resoconto Mensile</strong>.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="1760284079237_goldendav_triforce_v21.html" class="back-button" style="font-size: 1.2rem; padding: 15px 40px;">
+                    <i class="fas fa-home"></i> Torna alla Home Page
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="instruction-card" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(184, 134, 11, 0.1) 100%); border: 3px solid #4CAF50;">
+                <h2 class="instruction-title" style="color: #4CAF50; justify-content: center;">
+                    <i class="instruction-icon fas fa-users"></i>
+                    <span>SOCIAL TRADING</span>
+                </h2>
+                
+                <div style="color: #3b7cb8; font-size: 1.1rem; line-height: 2; text-align: justify; padding: 1rem 0;">
+                    <p style="margin-bottom: 1.5rem;">
+                        Il <strong style="color: #b8860b;">social trading</strong> è una forma di investimento online che unisce il trading finanziario alle dinamiche dei social network, consentendo agli utenti di osservare, seguire e copiare in tempo reale le operazioni di altri trader, spesso più esperti.
+                    </p>
+                    <p style="margin-bottom: 1.5rem;">
+                        Attraverso piattaforme dedicate, ogni investitore può analizzare le performance e la strategia dei trader più performanti e decidere di replicarne automaticamente le operazioni sul proprio conto, in proporzione al capitale allocato.
+                    </p>
+                    <p style="margin-bottom: 0;">
+                        L'obiettivo è rendere il trading <strong style="color: #4CAF50;">più accessibile e collaborativo</strong>, permettendo anche ai meno esperti di beneficiare delle competenze altrui, pur mantenendo i rischi tipici dei mercati finanziari e la necessità di una gestione consapevole del proprio capitale.
+                    </p>
+                </div>
+
+                <div style="background: rgba(184, 134, 11, 0.1); padding: 2rem; border-radius: 15px; margin-top: 2rem; border: 2px solid #b8860b;">
+                    <h4 style="color: #b8860b; font-size: 1.3rem; margin-bottom: 1rem; text-align: center;">
+                        <i class="fas fa-lightbulb"></i> Vantaggi del Social Trading
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <div style="background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 10px;">
+                            <div style="color: #4CAF50; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                                <i class="fas fa-copy"></i>
+                            </div>
+                            <h5 style="color: #3b7cb8; font-weight: bold; margin-bottom: 0.5rem;">Copia Automatica</h5>
+                            <p style="color: #3b7cb8; font-size: 0.95rem;">Replica le operazioni dei trader esperti in tempo reale</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 10px;">
+                            <div style="color: #4CAF50; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 style="color: #3b7cb8; font-weight: bold; margin-bottom: 0.5rem;">Performance Verificate</h5>
+                            <p style="color: #3b7cb8; font-size: 0.95rem;">Analizza statistiche e track record certificati</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 10px;">
+                            <div style="color: #4CAF50; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h5 style="color: #3b7cb8; font-weight: bold; margin-bottom: 0.5rem;">Apprendimento</h5>
+                            <p style="color: #3b7cb8; font-size: 0.95rem;">Impara osservando le strategie dei professionisti</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="disclaimer">
+        <div class="container">
+            <p><strong>⚠️ Disclaimer:</strong> Il sito mostra una rappresentazione del funzionamento di GOLDENDAV TriForce e non vuole in alcun modo essere un invito all'investimento. Il trading comporta rischi significativi. Le proiezioni di rendimento sono basate su un target teorico del 3% settimanale e non garantiscono risultati futuri. Investi solo quello che puoi permetterti di perdere. GOLDENDAV TriForce è un sistema innovativo che combina due strategie algoritmiche (EUROSNIPER e GBPSNIPER) con l'intervento di un trader umano, ma non può garantire profitti futuri. Capitale iniziale: 500€, lot size 0.01 per ogni bot, perdita massima giornaliera totale per i 2 bot: 0.70%, trading manuale: max drawdown e stop loss giornaliero 5%. Le proiezioni a 1 e 5 anni assumono una crescita costante del 3% settimanale composta, scenario ideale che potrebbe non verificarsi. I mercati sono volatili e le perdite possono superare le aspettative. La logica progressiva è teorica e dipende dalle condizioni di mercato. L'intervento del trader umano aggiunge variabilità non prevedibile. Prima di utilizzare il sistema, comprendi completamente i rischi. Le informazioni sono fornite esclusivamente a scopo informativo e non costituiscono consigli finanziari personalizzati. Consulta sempre un professionista qualificato prima di prendere decisioni di investimento. Il sistema opera su mercati volatili (EUR/USD, GBP/JPY, XAU/USD) che possono causare perdite rapide e significative. L'uso del sistema è completamente a proprio rischio e responsabilità.</p>
+        </div>
+    </section>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        document.querySelectorAll('.instruction-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.01)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
