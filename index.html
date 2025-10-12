@@ -562,7 +562,7 @@
                                 <li>Coppia EUR/USD - Mercato liquido</li>
                                 <li>Strategia ibrida BB + RSI Momentum</li>
                                 <li>Max 3 trade giornalieri progressivi</li>
-                                <li>Size 0.01 - Risk 0.33% giornaliero</li>
+                                <li>Size 0.01 - Risk 0.50% giornaliero</li>
                             </ul>
                         </div>
                         <div>
@@ -571,7 +571,7 @@
                                 <li>Coppia GBP/JPY - Alta volatilità</li>
                                 <li>Strategia ibrida ottimizzata H1</li>
                                 <li>Max 3 trade giornalieri progressivi</li>
-                                <li>Size 0.01 - Risk 0.33% giornaliero</li>
+                                <li>Size 0.01 - Risk 0.20% giornaliero</li>
                             </ul>
                         </div>
                         <div>
@@ -593,7 +593,7 @@
                     <div class="force-name">🔥 FORZA 1: EUROSNIPER</div>
                     <div class="force-description">
                         Sistema ibrido su EUR/USD che combina breakout delle Bollinger Bands con momentum RSI. 
-                        <strong>Operativo 6:00-20:00 GMT.</strong> Logica progressiva a 3 livelli: vittoria al 1° trade = profitto pieno, al 2° = metà profitto, al 3° = break-even (0 a 0). Perdita di tutti e 3 i trade = -0.33% del capitale.
+                        <strong>Operativo 6:00-18:00 GMT.</strong> Logica progressiva con stop win.
                     </div>
                     <div class="force-stats">
                         <div class="force-stat">
@@ -601,7 +601,7 @@
                             <div class="force-stat-label">Settimanale</div>
                         </div>
                         <div class="force-stat">
-                            <div class="force-stat-value" style="color: #ffffff !important;">6:00-20:00</div>
+                            <div class="force-stat-value" style="color: #ffffff !important;">6:00-18:00</div>
                             <div class="force-stat-label">Orario GMT</div>
                         </div>
                         <div class="force-stat">
@@ -609,7 +609,7 @@
                             <div class="force-stat-label">Lot Size</div>
                         </div>
                         <div class="force-stat">
-                            <div class="force-stat-value" style="color: #ffffff !important;">0.33%</div>
+                            <div class="force-stat-value" style="color: #ffffff !important;">0.50%</div>
                             <div class="force-stat-label">Max Loss Day</div>
                         </div>
                     </div>
@@ -618,8 +618,8 @@
                 <div class="force-card gbpsniper">
                     <div class="force-name">🎯 FORZA 2: GBPSNIPER</div>
                     <div class="force-description">
-                        Sistema ibrido su GBP/JPY ottimizzato per maggiore volatilità. Timeframe H1 per filtraggio superiore. 
-                        <strong>Operativo 6:00-20:00 GMT.</strong> Stessa logica progressiva: vittoria al 1° trade = profitto pieno, al 2° = metà profitto, al 3° = break-even. Tutti e 3 perdenti = -0.33% del capitale.
+                        Sistema ibrido su GBP/JPY ottimizzato per maggiore volatilità. Timeframe M5. 
+                        <strong>Operativo 6:00-18:00 GMT.</strong> Logica da Cecchino: 1 solo trade al giorno.
                     </div>
                     <div class="force-stats">
                         <div class="force-stat">
@@ -627,7 +627,7 @@
                             <div class="force-stat-label">Settimanale</div>
                         </div>
                         <div class="force-stat">
-                            <div class="force-stat-value" style="color: #ffffff !important;">6:00-20:00</div>
+                            <div class="force-stat-value" style="color: #ffffff !important;">6:00-18:00</div>
                             <div class="force-stat-label">Orario GMT</div>
                         </div>
                         <div class="force-stat">
@@ -635,7 +635,7 @@
                             <div class="force-stat-label">Lot Size</div>
                         </div>
                         <div class="force-stat">
-                            <div class="force-stat-value" style="color: #ffffff !important;">0.33%</div>
+                            <div class="force-stat-value" style="color: #ffffff !important;">0.20%</div>
                             <div class="force-stat-label">Max Loss Day</div>
                         </div>
                     </div>
@@ -668,43 +668,7 @@
                 </div>
             </div>
 
-            <div style="background: rgba(255,255,255,0.5); padding: 2.5rem; border-radius: 15px; border: 2px solid #FF6B35; margin: 3rem 0;">
-                <h3 style="text-align: center; color: #FF6B35; font-size: 1.8rem; margin-bottom: 2rem;">📊 COME FUNZIONA LA LOGICA PROGRESSIVA A 3 LIVELLI</h3>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                    <div style="background: rgba(76, 175, 80, 0.2); padding: 1.5rem; border-radius: 10px; border: 2px solid #4CAF50;">
-                        <h4 style="color: #4CAF50; margin-bottom: 1rem; text-align: center;">✅ TRADE #1 VINCENTE</h4>
-                        <p style="color: #3b7cb8; text-align: center; font-size: 1.1rem;"><strong>Profitto pieno</strong></p>
-                        <p style="color: #3b7cb8; text-align: center; font-size: 0.9rem;">Il bot chiude la giornata con profitto completo</p>
-                    </div>
-                    
-                    <div style="background: rgba(255, 193, 7, 0.2); padding: 1.5rem; border-radius: 10px; border: 2px solid #FFC107;">
-                        <h4 style="color: #FFC107; margin-bottom: 1rem; text-align: center;">⚠️ TRADE #2 VINCENTE</h4>
-                        <p style="color: #3b7cb8; text-align: center; font-size: 1.1rem;"><strong>Metà profitto</strong></p>
-                        <p style="color: #3b7cb8; text-align: center; font-size: 0.9rem;">Recupera perdita Trade #1, profitto dimezzato</p>
-                    </div>
-                    
-                    <div style="background: rgba(33, 150, 243, 0.2); padding: 1.5rem; border-radius: 10px; border: 2px solid #2196F3;">
-                        <h4 style="color: #2196F3; margin-bottom: 1rem; text-align: center;">🔄 TRADE #3 VINCENTE</h4>
-                        <p style="color: #3b7cb8; text-align: center; font-size: 1.1rem;"><strong>Break-even (0 a 0)</strong></p>
-                        <p style="color: #3b7cb8; text-align: center; font-size: 0.9rem;">Recupera Trade #1 e #2, nessun profitto</p>
-                    </div>
-                    
-                    <div style="background: rgba(244, 67, 54, 0.2); padding: 1.5rem; border-radius: 10px; border: 2px solid #F44336; grid-column: span 3;">
-                        <h4 style="color: #F44336; margin-bottom: 1rem; text-align: center;">❌ TUTTI E 3 I TRADE PERDENTI</h4>
-                        <p style="color: #3b7cb8; text-align: center; font-size: 1.1rem;"><strong>Perdita: -0.33% del capitale</strong></p>
-                        <p style="color: #3b7cb8; text-align: center; font-size: 0.9rem;">Il bot chiude la giornata, massima perdita controllata per ogni bot</p>
-                    </div>
-                </div>
-
-                <div style="background: rgba(184, 134, 11, 0.2); padding: 1.5rem; border-radius: 10px; margin-top: 2rem; border: 1px solid rgba(184, 134, 11, 0.5);">
-                    <p style="color: #3b7cb8; text-align: center; font-size: 1rem;">
-                        <strong style="color: #b8860b;">RATIO RISCHIO/RENDIMENTO:</strong> Ogni trade ha un rapporto 2:1 (il profitto potenziale è doppio rispetto al rischio). 
-                        Questa logica progressiva garantisce che il bot abbia 3 opportunità giornaliere per raggiungere il profitto, 
-                        con una perdita massima controllata dello 0.33% per bot in caso di giornata negativa.
-                    </p>
-                </div>
-            </div>
+            
         </div>
     </section>
 
@@ -871,15 +835,15 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">2 Bot</div>
-                    <div class="stat-label">Sistemi Automatici 24/7</div>
+                    <div class="stat-label">Sistemi Automatici 12/5</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">0.01</div>
                     <div class="stat-label">Lot Size per Bot</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">0.33%</div>
-                    <div class="stat-label">Max Loss Day per Bot</div>
+                    <div class="stat-number">0.70%</div>
+                    <div class="stat-label">Max Loss Day totale per i 2 Bot</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">5.0%</div>
@@ -893,12 +857,12 @@
                     <div class="feature-icon">📊</div>
                     <h3 class="feature-title">Caratteristiche Bot</h3>
                     <ul class="check-list">
-                        <li><strong>EUROSniper:</strong> EUR/USD - Strategia ibrida BB + RSI</li>
-                        <li><strong>GBPSniper:</strong> GBP/JPY - Ottimizzato H1</li>
+                        <li><strong>EUROSniper:</strong> EUR/USD - Ottimizzato H1</li>
+                        <li><strong>GBPSniper:</strong> GBP/JPY - Ottimizzato M5</li>
                         <li><strong>Target combinato bot:</strong> ~1% settimanale</li>
                         <li><strong>Capitale minimo:</strong> 500€ base</li>
                         <li><strong>Lotti:</strong> 0.01 per ogni bot</li>
-                        <li><strong>Max loss giornaliero:</strong> 0.33% per bot</li>
+                        <li><strong>Max loss giornaliero:</strong> 0.50% + 0.20% per i 2 bot</li>
                     </ul>
                 </div>
                 <div class="feature-card">
@@ -931,7 +895,7 @@
                     <ul class="check-list">
                         <li><strong>Bot 16/5:</strong> Trading automatico continuo</li>
                         <li><strong>EUROSniper:</strong> EUR/USD strategia ibrida</li>
-                        <li><strong>GBPSniper:</strong> GBP/JPY alta volatilità</li>
+                        <li><strong>GBPSniper:</strong> GBP/JPY cecchino 1 shot</li>
                         <li>Diversificazione su 2 coppie diverse</li>
                         <li>Gestione rischio pre-programmata</li>
                     </ul>
@@ -995,7 +959,7 @@
 
     <section class="disclaimer">
         <div class="container">
-            <p><strong>⚠️ Disclaimer:</strong> Il trading comporta rischi significativi. Le proiezioni di rendimento sono basate su un target teorico del 3% settimanale e non garantiscono risultati futuri. Investi solo quello che puoi permetterti di perdere. GOLDENDAV TriForce è un sistema innovativo che combina due strategie algoritmiche (EUROSNIPER e GBPSNIPER) con l'intervento di un trader umano, ma non può garantire profitti futuri. Capitale iniziale: 500€, lot size 0.01 per ogni bot, perdita massima giornaliera per bot: 0.33%, trading manuale: max drawdown e stop loss giornaliero 5%. Le proiezioni a 1 e 5 anni assumono una crescita costante del 3% settimanale composta, scenario ideale che potrebbe non verificarsi. I mercati sono volatili e le perdite possono superare le aspettative. La logica progressiva a 3 livelli dei bot (vittoria al 1° = profitto pieno, al 2° = metà profitto, al 3° = break-even, tutti perdenti = -0.33%) è teorica e dipende dalle condizioni di mercato. L'intervento del trader umano aggiunge variabilità non prevedibile. Prima di utilizzare il sistema, comprendi completamente i rischi. Le informazioni sono fornite esclusivamente a scopo informativo e non costituiscono consigli finanziari personalizzati. Consulta sempre un professionista qualificato prima di prendere decisioni di investimento. Il sistema opera su mercati volatili (EUR/USD, GBP/JPY, XAU/USD) che possono causare perdite rapide e significative. L'uso del sistema è completamente a proprio rischio e responsabilità.</p>
+            <p><strong>⚠️ Disclaimer:</strong> Il sito mostra una rappresentazione del funzionamento di GOLDENDAV TriForce e non vuole in alcun modo essere un invito all'investimento. Il trading comporta rischi significativi. Le proiezioni di rendimento sono basate su un target teorico del 3% settimanale e non garantiscono risultati futuri. Investi solo quello che puoi permetterti di perdere. GOLDENDAV TriForce è un sistema innovativo che combina due strategie algoritmiche (EUROSNIPER e GBPSNIPER) con l'intervento di un trader umano, ma non può garantire profitti futuri. Capitale iniziale: 500€, lot size 0.01 per ogni bot, perdita massima giornaliera totale per i 2 bot: 0.70%, trading manuale: max drawdown e stop loss giornaliero 5%. Le proiezioni a 1 e 5 anni assumono una crescita costante del 3% settimanale composta, scenario ideale che potrebbe non verificarsi. I mercati sono volatili e le perdite possono superare le aspettative. La logica progressiva è teorica e dipende dalle condizioni di mercato. L'intervento del trader umano aggiunge variabilità non prevedibile. Prima di utilizzare il sistema, comprendi completamente i rischi. Le informazioni sono fornite esclusivamente a scopo informativo e non costituiscono consigli finanziari personalizzati. Consulta sempre un professionista qualificato prima di prendere decisioni di investimento. Il sistema opera su mercati volatili (EUR/USD, GBP/JPY, XAU/USD) che possono causare perdite rapide e significative. L'uso del sistema è completamente a proprio rischio e responsabilità.</p>
         </div>
     </section>
 
